@@ -1,12 +1,12 @@
 package routers
 
 import (
-	"goERP/controllers/address"
-	"goERP/controllers/base"
-	"goERP/controllers/product"
-	"goERP/controllers/purchase"
-	"goERP/controllers/sale"
-	"goERP/controllers/stock"
+	"goADM/controllers/address"
+	"goADM/controllers/base"
+	"goADM/controllers/product"
+	"goADM/controllers/purchase"
+	"goADM/controllers/sale"
+	"goADM/controllers/stock"
 
 	"github.com/astaxie/beego"
 )

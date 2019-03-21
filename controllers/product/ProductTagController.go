@@ -2,8 +2,9 @@ package product
 
 import (
 	"bytes"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"strings"
 )
 
@@ -12,7 +13,7 @@ type ProductTagController struct {
 }
 
 func (ctl *ProductTagController) Get() {
-	ctl.PageName = "产品标签"
+	ctl.PageName = utils.MsgProductTag
 	action := ctl.GetString(":action")
 	viewType := ctl.Input().Get("view_type")
 	switch action {
@@ -34,7 +35,7 @@ func (ctl *ProductTagController) Get() {
 	ctl.Data["PageName"] = b.String()
 }
 func (ctl *ProductTagController) List() {
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 }
 func (ctl *ProductTagController) Validator() {
 	name := ctl.GetString("name")

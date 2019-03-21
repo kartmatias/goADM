@@ -45,7 +45,7 @@ var BootstrapValidator = function(selector, needValidatorFields) {
         return { cellData: funCellData, hasProp: funHasProp };
     };
     $(selector).bootstrapValidator({
-        message: '该值无效',
+        message: 'Valor inválido',
         feedbackIcons: { /*input状态样式图片*/
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
@@ -281,7 +281,7 @@ $(function() {
     // 用户form
     BootstrapValidator("#userForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "用户名不能为空"
@@ -324,7 +324,7 @@ $(function() {
             }
         },
         NameZh: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "用户名(中文)不能为空"
@@ -332,7 +332,7 @@ $(function() {
             }
         },
         Mobile: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "手机号码不能为空"
@@ -371,7 +371,7 @@ $(function() {
             }
         },
         Tel: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 regexp: {
                     regexp: /^[0-9-]+$/,
@@ -380,7 +380,7 @@ $(function() {
             }
         },
         Email: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "邮箱不能为空"
@@ -418,7 +418,7 @@ $(function() {
             }
         },
         Position: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "职位不能为空"
@@ -426,7 +426,7 @@ $(function() {
             }
         },
         Department: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "部门不能为空"
@@ -434,7 +434,7 @@ $(function() {
             }
         },
         Group: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "权限组不能为空"
@@ -442,7 +442,7 @@ $(function() {
             }
         },
         Password: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "密码不能为空"
@@ -462,7 +462,7 @@ $(function() {
             }
         },
         ConfirmPassword: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "确认密码不能为空"
@@ -489,7 +489,7 @@ $(function() {
     // 公司
     BootstrapValidator("#companyForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "公司名称不能为空"
@@ -519,7 +519,7 @@ $(function() {
             }
         },
         Code: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 remote: {
                     url: "/company/",
@@ -546,7 +546,7 @@ $(function() {
             }
         },
         Province: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "省份不能为空"
@@ -554,7 +554,7 @@ $(function() {
             }
         },
         City: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "城市不能为空"
@@ -563,7 +563,7 @@ $(function() {
         },
 
         Street: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "街道不能为空"
@@ -574,7 +574,7 @@ $(function() {
     // 部门
     BootstrapValidator("#departmentForm", {
         Company: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "所属公司不能为空"
@@ -582,7 +582,7 @@ $(function() {
             }
         },
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "部门名称不能为空"
@@ -627,7 +627,7 @@ $(function() {
     // 团队
     BootstrapValidator("#teamForm", {
         Company: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "所属公司不能为空"
@@ -635,7 +635,7 @@ $(function() {
             }
         },
         Leader: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "负责人不能为空"
@@ -643,7 +643,7 @@ $(function() {
             }
         },
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "团队名称不能为空"
@@ -678,7 +678,7 @@ $(function() {
     });
     BootstrapValidator("#positionForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "职位名称不能为空"
@@ -710,7 +710,7 @@ $(function() {
     // 菜单
     BootstrapValidator("#menuForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "菜单名称不能为空"
@@ -739,7 +739,7 @@ $(function() {
             }
         },
         Identity: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "菜单唯一标识不能为空"
@@ -771,7 +771,7 @@ $(function() {
     // 角色
     BootstrapValidator("#roleForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "角色名称不能为空"
@@ -803,7 +803,7 @@ $(function() {
     // 资源
     BootstrapValidator("#sourceForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "资源名称不能为空"
@@ -832,7 +832,7 @@ $(function() {
             }
         },
         ModelName: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "Model名称不能为空"
@@ -864,7 +864,7 @@ $(function() {
     // 合作伙伴
     BootstrapValidator("#partnerForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "名称不能为空"
@@ -898,7 +898,7 @@ $(function() {
             }
         },
         Mobile: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "手机号码不能为空"
@@ -906,7 +906,7 @@ $(function() {
             }
         },
         Province: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "省份不能为空"
@@ -914,7 +914,7 @@ $(function() {
             }
         },
         City: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "城市不能为空"
@@ -923,7 +923,7 @@ $(function() {
         },
 
         Street: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "街道不能为空"
@@ -934,7 +934,7 @@ $(function() {
     // 序列号
     BootstrapValidator("#sequenceForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: { message: "名称不能为空" },
                 remote: {
@@ -961,7 +961,7 @@ $(function() {
             }
         },
         Prefix: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: { message: "前缀不能为空" },
                 remote: {
@@ -992,7 +992,7 @@ $(function() {
             }
         },
         StructName: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: { message: "表struct名称不能为空" },
                 remote: {
@@ -1023,7 +1023,7 @@ $(function() {
     //产品分类form
     BootstrapValidator("#productCategoryForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "产品类别不能为空"
@@ -1055,7 +1055,7 @@ $(function() {
     //产品属性form
     BootstrapValidator("#productAttributeForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "属性名称不能为空"
@@ -1087,7 +1087,7 @@ $(function() {
     //产品属性值form
     BootstrapValidator("#productAttributeValueForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "属性值不能为空"
@@ -1122,7 +1122,7 @@ $(function() {
             },
         },
         AttributeID: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "属性不能为空"
@@ -1133,7 +1133,7 @@ $(function() {
     //计量单位分类
     BootstrapValidator("#productUomCategForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "计量单位分类不能为空"
@@ -1165,7 +1165,7 @@ $(function() {
     //计量单位
     BootstrapValidator("#productUomForm", {
         Category: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "计量单位分类不能为空"
@@ -1173,7 +1173,7 @@ $(function() {
             }
         },
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "计量单位名称不能为空"
@@ -1202,7 +1202,7 @@ $(function() {
             },
         },
         Rounding: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 numeric: {
                     message: "舍入精度应为数字"
@@ -1210,7 +1210,7 @@ $(function() {
             }
         },
         FactorInv: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 numeric: {
                     message: "更大比率应为数字"
@@ -1218,7 +1218,7 @@ $(function() {
             }
         },
         Factor: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 numeric: {
                     message: "比率应为数字"
@@ -1231,7 +1231,7 @@ $(function() {
     //产品款式
     BootstrapValidator("#productTemplateForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "款式名称不能为空"
@@ -1305,7 +1305,7 @@ $(function() {
     // 产品规格
     BootstrapValidator("#productProductForm", {
         ProductTemplateID: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "产品款式名称不能为空"
@@ -1313,7 +1313,7 @@ $(function() {
             }
         },
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "产品规格名称不能为空"
@@ -1342,7 +1342,7 @@ $(function() {
             },
         },
         AttributeValueIds: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 remote: {
                     url: "/product/product/",
@@ -1390,7 +1390,7 @@ $(function() {
     // 柜台
     BootstrapValidator("#saleCounterForm", {
         Company: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "所属公司不能为空"
@@ -1398,7 +1398,7 @@ $(function() {
             }
         },
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "柜台名称不能为空"
@@ -1440,7 +1440,7 @@ $(function() {
     // 仓库管理
     BootstrapValidator("#stockWarehouseForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "仓库名称不能为空"
@@ -1469,7 +1469,7 @@ $(function() {
             },
         },
         Company: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "所属公司不能为空"
@@ -1477,7 +1477,7 @@ $(function() {
             }
         },
         Code: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "仓库编码不能为空"
@@ -1506,7 +1506,7 @@ $(function() {
             },
         },
         Province: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "省份不能为空"
@@ -1514,7 +1514,7 @@ $(function() {
             }
         },
         City: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "城市不能为空"
@@ -1523,7 +1523,7 @@ $(function() {
         },
 
         Street: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "街道不能为空"
@@ -1534,7 +1534,7 @@ $(function() {
     //库位类型管理
     BootstrapValidator("#stockPickingTypeForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "仓库名称不能为空"
@@ -1563,7 +1563,7 @@ $(function() {
             },
         },
         WareHouse: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "仓库名称不能为空"
@@ -1574,7 +1574,7 @@ $(function() {
     // 库位
     BootstrapValidator("#stockLocationForm", {
         Name: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "库位名称不能为空"
@@ -1603,7 +1603,7 @@ $(function() {
             },
         },
         Company: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "所属公司不能为空"
@@ -1611,7 +1611,7 @@ $(function() {
             }
         },
         Usage: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "库位类型不能为空"
@@ -1619,7 +1619,7 @@ $(function() {
             }
         },
         Posx: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 regexp: {
                     regexp: /[1-9]+$/,
@@ -1628,7 +1628,7 @@ $(function() {
             }
         },
         Posy: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 regexp: {
                     regexp: /[1-9]+$/,
@@ -1637,7 +1637,7 @@ $(function() {
             }
         },
         Posz: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 regexp: {
                     regexp: /[1-9]+$/,
@@ -1649,7 +1649,7 @@ $(function() {
     // 销售订单
     BootstrapValidator("#saleOrderForm", {
         Partner: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "客户不能为空"
@@ -1657,7 +1657,7 @@ $(function() {
             }
         },
         Company: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "所属公司不能为空"
@@ -1665,7 +1665,7 @@ $(function() {
             }
         },
         StockWarehouse: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "发货仓库不能为空"
@@ -1673,7 +1673,7 @@ $(function() {
             }
         },
         SalesMan: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "业务员不能为空"
@@ -1681,7 +1681,7 @@ $(function() {
             }
         },
         PickingPolicy: {
-            message: "该值无效",
+            message: "Valor inválido",
             validators: {
                 notEmpty: {
                     message: "发货策略不能为空"

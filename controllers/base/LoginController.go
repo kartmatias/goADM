@@ -1,6 +1,6 @@
 package base
 
-import md "goERP/models"
+import md "goADM/models"
 
 // LoginController login controller
 type LoginController struct {

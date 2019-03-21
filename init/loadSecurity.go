@@ -2,7 +2,7 @@ package init
 
 import (
 	"encoding/xml"
-	md "goERP/models"
+	md "goADM/models"
 	"io/ioutil"
 	"os"
 	"runtime"

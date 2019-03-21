@@ -3,7 +3,8 @@ package base
 import (
 	"bytes"
 	"encoding/json"
-	md "goERP/models"
+	md "goADM/models"
+	"goADM/utils"
 )
 
 // RecordController 登录日志
@@ -13,7 +14,7 @@ type RecordController struct {
 
 // Get 请求
 func (ctl *RecordController) Get() {
-	ctl.PageName = "登陆记录管理"
+	ctl.PageName = utils.MsgRecord
 	ctl.URL = "/record/"
 	ctl.Data["URL"] = ctl.URL
 	ctl.Data["MenuRecordActive"] = "active"
@@ -108,7 +109,7 @@ func (ctl *RecordController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-record"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "user/record_list_search.html"

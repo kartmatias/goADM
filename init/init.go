@@ -3,7 +3,7 @@ package init
 import (
 	"errors"
 
-	. "goERP/utils"
+	. "goADM/utils"
 	"path/filepath"
 	"strings"
 	"time"

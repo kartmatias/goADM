@@ -1,6 +1,6 @@
 package sale
 
-import "goERP/controllers/base"
+import "goADM/controllers/base"
 
 type SaleReportController struct {
 	base.BaseController
@@ -81,7 +81,7 @@ type SaleReportController struct {
 // func (ctl *SaleReportController) Create() {
 // 	ctl.Data["Action"] = "create"
 // 	ctl.Data["Readonly"] = false
-// 	ctl.PageAction = "创建"
+// 	ctl.PageAction = utils.MsgCreate
 // 	ctl.Layout = "base/base.html"
 // 	ctl.TplName = "sale/sale_report_form.html"
 // }
@@ -193,7 +193,7 @@ type SaleReportController struct {
 // 	if viewType == "" || viewType == "table" {
 // 		ctl.Data["ViewType"] = "table"
 // 	}
-// 	ctl.PageAction = "列表"
+// 	ctl.PageAction = utils.MsgList
 // 	ctl.Data["tableId"] = "table-sale-report"
 // 	ctl.Layout = "base/base_list_view.html"
 // 	ctl.TplName = "sale/sale_report_list_search.html"

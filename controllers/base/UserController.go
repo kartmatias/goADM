@@ -4,7 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	md "goERP/models"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -31,13 +32,13 @@ func (ctl *UserController) Put() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(user.ID, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据更新失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -92,7 +93,7 @@ func (ctl *UserController) Post() {
 func (ctl *UserController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Data["FormField"] = "form-create"
 	ctl.Layout = "base/base.html"
 	ctl.TplName = "user/user_form.html"
@@ -113,7 +114,7 @@ func (ctl *UserController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-user"
 	ctl.Data["MenuUserActive"] = "active"
 	ctl.Layout = "base/base_list_view.html"
@@ -289,13 +290,13 @@ func (ctl *UserController) PostCreate() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result

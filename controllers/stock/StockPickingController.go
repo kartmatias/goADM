@@ -4,8 +4,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -33,13 +34,13 @@ func (ctl *StockPickingController) Get() {
 	ctl.Data["Direction"] = direction
 	switch direction {
 	case "incoming":
-		ctl.PageName = "入库单管理"
+		ctl.PageName = utils.MsgStockPickingIncoming
 		ctl.Data["MenuStockPickingIncomingActive"] = "active"
 	case "outgoing":
-		ctl.PageName = "出库单管理"
+		ctl.PageName = utils.MsgStockPickingOutgoing
 		ctl.Data["MenuStockPickingOutgoingActive"] = "active"
 	case "internal":
-		ctl.PageName = "调拨单管理"
+		ctl.PageName = utils.MsgStockPickingInternal
 		ctl.Data["MenuStockPickingInternalActive"] = "active"
 	}
 	ctl.URL = "/stock/picking/"
@@ -88,14 +89,14 @@ func (ctl *StockPickingController) PostCreate() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -120,7 +121,7 @@ func (ctl *StockPickingController) Put() {
 func (ctl *StockPickingController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Layout = "base/base.html"
 	ctl.Data["FormField"] = "form-create"
 	ctl.TplName = "stock/stock_picking_form.html"
@@ -229,7 +230,7 @@ func (ctl *StockPickingController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-stock-picking"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "stock/stock_picking_list_search.html"

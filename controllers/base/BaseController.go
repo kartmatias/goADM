@@ -1,9 +1,9 @@
 package base
 
 import (
-	. "goERP/init"
-	md "goERP/models"
-	. "goERP/utils"
+	. "goADM/init"
+	md "goADM/models"
+	. "goADM/utils"
 	"html/template"
 	"strings"
 	"time"
@@ -98,9 +98,9 @@ func (ctl *BaseController) setLangVer() bool {
 		}
 	}
 
-	// 4. Default language is English.
+	// 4. Default language is Portugues.
 	if len(lang) == 0 {
-		lang = "en-US"
+		lang = "pt-BR"
 		isNeedRedir = false
 	}
 

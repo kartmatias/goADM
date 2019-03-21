@@ -3,8 +3,9 @@ package purchase
 import (
 	"bytes"
 	"encoding/json"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -97,7 +98,7 @@ func (ctl *PurchaseOrderLineController) Edit() {
 func (ctl *PurchaseOrderLineController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Layout = "base/base.html"
 	ctl.TplName = "purchase/purchase_order_line_form.html"
 }
@@ -210,7 +211,7 @@ func (ctl *PurchaseOrderLineController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-purchase-order-line"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "purchase/purchase_order_line_list_search.html"

@@ -3,8 +3,9 @@ package product
 import (
 	"bytes"
 	"encoding/json"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -113,8 +114,8 @@ func (ctl *ProductAttributeLineController) PostCreate() {
 		// structName := reflect.Indirect(reflect.ValueOf(category)).Type().Name()
 
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -125,7 +126,7 @@ func (ctl *ProductAttributeLineController) PostCreate() {
 func (ctl *ProductAttributeLineController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Data["FormField"] = "form-create"
 	ctl.Layout = "base/base.html"
 	ctl.TplName = "product/product_attribute_line_form.html"
@@ -227,7 +228,7 @@ func (ctl *ProductAttributeLineController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-product-attribute-line"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "product/product_attribute_line_search.html"

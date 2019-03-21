@@ -85,8 +85,8 @@
     <script src="/static/js/show-password.js"></script>
     <script>
         $("#loginForm").bootstrapValidator({
-            message: '该值无效',
-            feedbackIcons: { /*input状态样式图片*/
+            message: 'Valor inválido',
+            feedbackIcons: { /*input状态样式Imagem*/
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
@@ -96,18 +96,18 @@
             trigger: null,
             fields: {
                 loginName: {
-                    message: "该值无效",
+                    message: "Valor inválido",
                     validators: {
                         notEmpty: {
-                            message: "用户名不能为空"
+                            message: "O nome de usuário não pode estar vazio"
                         },
                     }
                 },
                 password: {
-                    message: "该值无效",
+                    message: "Valor inválido",
                     validators: {
                         notEmpty: {
-                            message: "密码不能为空"
+                            message: "A senha não pode estar vazia"
                         },
                     }
                 }

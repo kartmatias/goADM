@@ -3,8 +3,9 @@ package product
 import (
 	"bytes"
 	"encoding/json"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -27,7 +28,7 @@ func (ctl *ProductUomController) Post() {
 	}
 }
 func (ctl *ProductUomController) Get() {
-	ctl.PageName = "单位管理"
+	ctl.PageName = "Gestão de Unidades"
 	action := ctl.Input().Get("action")
 	switch action {
 	case "create":
@@ -105,13 +106,13 @@ func (ctl *ProductUomController) PostCreate() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -149,15 +150,15 @@ func (ctl *ProductUomController) productUomList(query map[string]interface{}, ex
 			oneLine["symbol"] = line.Symbol
 			switch line.Type {
 			case 1:
-				oneLine["type"] = "小于参考计量单位"
+				oneLine["type"] = "< Und Referência"
 				oneLine["factor"] = line.Factor
 			case 2:
-				oneLine["type"] = "参考计量单位"
+				oneLine["type"] = "Unidade de Referência"
 			case 3:
-				oneLine["type"] = "大于参考计量单位"
+				oneLine["type"] = "> Und Referência"
 				oneLine["factorInv"] = line.FactorInv
 			default:
-				oneLine["type"] = "参考计量单位"
+				oneLine["type"] = "Unidade de Referência"
 			}
 
 			oneLine["category"] = line.Category.Name
@@ -204,13 +205,13 @@ func (ctl *ProductUomController) Edit() {
 				ctl.PageAction = uom.Name
 				switch uom.Type {
 				case 1:
-					uom.TypeName = "小于参考计量单位"
+					uom.TypeName = "< Unidade Referência"
 				case 2:
-					uom.TypeName = "参考计量单位"
+					uom.TypeName = "Unidade Referência"
 				case 3:
-					uom.TypeName = "大于参考计量单位"
+					uom.TypeName = "> Unidade Referência"
 				default:
-					uom.TypeName = "参考计量单位"
+					uom.TypeName = "Unidade Referência"
 				}
 				ctl.Data["Uom"] = uom
 			}
@@ -233,7 +234,7 @@ func (ctl *ProductUomController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-product-uom"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "product/product_uom_list_search.html"
@@ -243,6 +244,6 @@ func (ctl *ProductUomController) Create() {
 	ctl.Data["FormField"] = "form-create"
 	ctl.Data["Readonly"] = false
 	ctl.Layout = "base/base.html"
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.TplName = "product/product_uom_form.html"
 }
