@@ -3,11 +3,11 @@
 package main
 
 import (
-	. "goERP/init"
-	_ "goERP/models"
-	_ "goERP/routers"
+	. "goADM/init"
+	_ "goADM/models"
+	_ "goADM/routers"
 
-	"goERP/utils"
+	"goADM/utils"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

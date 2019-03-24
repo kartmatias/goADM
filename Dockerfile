@@ -1,6 +1,6 @@
 FROM golang
 
-ENV APP_HOME /go/src/goERP
+ENV APP_HOME /go/src/goADM
 
 RUN mkdir -p $APP_HOME
 

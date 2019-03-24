@@ -3,8 +3,9 @@ package product
 import (
 	"bytes"
 	"encoding/json"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"sort"
 	"strconv"
 	"strings"
@@ -61,7 +62,7 @@ func (ctl *ProductProductController) PostBatchUpdate() {
 	result := make(map[string]interface{})
 	field := ctl.GetString("field")
 	updateFields := make(map[string]interface{})
-	result["code"] = "failed"
+	result["code"] = utils.FailedCode
 	var ids []int64
 	switch field {
 	case "Active":
@@ -88,7 +89,7 @@ func (ctl *ProductProductController) PostBatchUpdate() {
 			}
 		}
 	} else {
-		result["debug"] = "参数不正确，没有可更新的信息"
+		result["debug"] = utils.IncorrectParams
 	}
 	ctl.Data["json"] = result
 	ctl.ServeJSON()
@@ -108,14 +109,14 @@ func (ctl *ProductProductController) PostCreate() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -140,7 +141,7 @@ func (ctl *ProductProductController) Put() {
 func (ctl *ProductProductController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Layout = "base/base.html"
 	ctl.Data["FormField"] = "form-create"
 	ctl.TplName = "product/product_product_form.html"
@@ -327,7 +328,7 @@ func (ctl *ProductProductController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-product-product"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "product/product_product_list_search.html"

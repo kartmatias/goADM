@@ -39,7 +39,7 @@ func initMemcache() {
 }
 
 func initRedis() {
-	LogOut("info", "缓存采用的是redis")
+	LogOut("info", "O cache está usando redis")
 	// cc = &cache.Cache{}
 	var err error
 
@@ -50,7 +50,7 @@ func initRedis() {
 		}
 	}()
 	host := beego.AppConfig.String("cache::redis_host")
-	LogOut("info", "连接参数:"+host)
+	LogOut("info", "Parâmetro de conexão:"+host)
 	cc, err = cache.NewCache("redis", `{"conn":"`+host+`"}`)
 
 	if err != nil {
@@ -101,13 +101,13 @@ func GetCache(key string, to interface{}) error {
 
 	data := cc.Get(key)
 	if data == nil {
-		return errors.New("Cache不存在")
+		return errors.New("Cache não existe")
 	}
 
 	err := Decode(data.([]byte), to)
 	if err != nil {
 		LogOut("error", err)
-		LogOut("error", "GetCache失败，key:"+key)
+		LogOut("error", "GetCache falhou，key:"+key)
 	}
 
 	return err
@@ -128,7 +128,7 @@ func DelCache(key string) error {
 
 	err := cc.Delete(key)
 	if err != nil {
-		return errors.New("Cache删除失败")
+		return errors.New("Excluir Cache Falhou")
 	} else {
 		return nil
 	}

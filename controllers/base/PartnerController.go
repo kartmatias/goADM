@@ -3,7 +3,8 @@ package base
 import (
 	"bytes"
 	"encoding/json"
-	md "goERP/models"
+	md "goADM/models"
+	"goADM/utils"
 
 	"fmt"
 	"strconv"
@@ -42,13 +43,13 @@ func (ctl *PartnerController) Put() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -131,13 +132,13 @@ func (ctl *PartnerController) PostCreate() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -146,7 +147,7 @@ func (ctl *PartnerController) PostCreate() {
 func (ctl *PartnerController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Data["FormField"] = "form-create"
 	ctl.Layout = "base/base.html"
 	ctl.TplName = "partner/partner_form.html"
@@ -296,7 +297,7 @@ func (ctl *PartnerController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-partner"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "partner/partner_list_search.html"

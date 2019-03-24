@@ -3,7 +3,8 @@ package base
 import (
 	"bytes"
 	"encoding/json"
-	md "goERP/models"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -68,13 +69,13 @@ func (ctl *PositionController) Put() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 		}
 	}
 	if err != nil {
-		result["code"] = "failed"
+		result["code"] = utils.FailedCode
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -96,13 +97,13 @@ func (ctl *PositionController) PostCreate() {
 			result["code"] = "success"
 			result["location"] = ctl.URL + strconv.FormatInt(id, 10) + "?action=detail"
 		} else {
-			result["code"] = "failed"
-			result["message"] = "数据创建失败"
+			result["code"] = utils.FailedCode
+			result["message"] = utils.FailedMsg
 			result["debug"] = err.Error()
 		}
 	} else {
-		result["code"] = "failed"
-		result["message"] = "请求数据解析失败"
+		result["code"] = utils.FailedCode
+		result["message"] = utils.FailedData
 		result["debug"] = err.Error()
 	}
 	ctl.Data["json"] = result
@@ -133,7 +134,7 @@ func (ctl *PositionController) Detail() {
 func (ctl *PositionController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Layout = "base/base.html"
 	ctl.Data["FormField"] = "form-create"
 	ctl.Data["FormTreeField"] = "form-tree-create"
@@ -256,7 +257,7 @@ func (ctl *PositionController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-position"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "user/position_list_search.html"

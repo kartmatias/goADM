@@ -3,8 +3,9 @@ package sale
 import (
 	"bytes"
 	"encoding/json"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -95,7 +96,7 @@ func (ctl *SaleOrderLineController) Edit() {
 func (ctl *SaleOrderLineController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Layout = "base/base.html"
 	ctl.TplName = "sale/sale_order_line_form.html"
 }
@@ -235,7 +236,7 @@ func (ctl *SaleOrderLineController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-sale-order-line"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "sale/sale_order_line_list_search.html"

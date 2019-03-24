@@ -3,8 +3,9 @@ package stock
 import (
 	"bytes"
 	"encoding/json"
-	"goERP/controllers/base"
-	md "goERP/models"
+	"goADM/controllers/base"
+	md "goADM/models"
+	"goADM/utils"
 	"strconv"
 	"strings"
 )
@@ -49,7 +50,7 @@ func (ctl *StockInventoryController) Put() {
 
 // Get request
 func (ctl *StockInventoryController) Get() {
-	ctl.PageName = "盘点管理"
+	ctl.PageName = utils.MsgStockInventory
 	action := ctl.Input().Get("action")
 	switch action {
 	case "create":
@@ -98,7 +99,7 @@ func (ctl *StockInventoryController) Edit() {
 func (ctl *StockInventoryController) Create() {
 	ctl.Data["Action"] = "create"
 	ctl.Data["Readonly"] = false
-	ctl.PageAction = "创建"
+	ctl.PageAction = utils.MsgCreate
 	ctl.Layout = "base/base.html"
 	ctl.TplName = "stock/stock_inventory_form.html"
 }
@@ -212,7 +213,7 @@ func (ctl *StockInventoryController) GetList() {
 	if viewType == "" || viewType == "table" {
 		ctl.Data["ViewType"] = "table"
 	}
-	ctl.PageAction = "列表"
+	ctl.PageAction = utils.MsgList
 	ctl.Data["tableId"] = "table-stock-inventory"
 	ctl.Layout = "base/base_list_view.html"
 	ctl.TplName = "stock/stock_inventory_list_search.html"
